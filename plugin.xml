@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-watsonstt" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>Watson Speech To Text</name>
+    <engines>
+        <engine name="cordova" version=">=3.4.0"/>
+    </engines>
+
+    <asset src="www/watsonstt.js" target="js/watsonstt.js"/>
+
+    <js-module name="watsonstt" src="www/watsonstt.js">
+        <clobbers target="WatsonSTT" />
+    </js-module>
+
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="watsonstt">
+                <param name="ios-package" value="watsonstt" />
+            </feature>
+        </config-file>
+
+        
+        <header-file src="src/ios/watsonstt.h" target-dir="watsonstt"/>
+        <source-file src="src/ios/watsonstt.m" target-dir="watsonstt"/>
+
+        <framework src="libs/ios/watsonsdk.framework" custom="true" weak="true" />
+        <framework src="Security.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreAudio.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CFNetwork.framework" />
+        <framework src="Quartzcore.framework" />
+        <framework src="libs/ios/libicucore.tbd"/>
+    </platform>
+</plugin>
